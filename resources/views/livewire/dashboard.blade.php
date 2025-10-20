@@ -24,7 +24,7 @@
                 <div>
                     <h2 class="card-title text-sm text-gray-500">Jumlah Kunjungan Bulan ini</h2>
                     <div class="mt-2 flex items-baseline">
-                        <span class="text-2xl font-semibold text-gray-900">{{ number_format($total_bulan_lalu, 0, ',', '.') }}</span>
+                        <span class="text-2xl font-semibold text-gray-900">{{ number_format($total_bulan, 0, ',', '.') }}</span>
                     </div>
                     <p class="mt-3 text-xs text-gray-500">Transaksi yang tercatat di bulan ini.</p>
                 </div>

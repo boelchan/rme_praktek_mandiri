@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('ihs_number')->nullable();
             $table->foreignId('patient_id')->constrained('patients');
-            $table->date('period_start');
+            $table->date('encounter_date');
+            $table->dateTime('period_start')->nullable();
             $table->text('keterangan');
             $table->timestamps();
         });

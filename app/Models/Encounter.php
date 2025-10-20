@@ -13,4 +13,16 @@ class Encounter extends Model
         return $this->belongsTo(Patient::class);
     }
 
+    public static function total_bulan()
+    {
+        return self::whereYear('encounter_date', now()->year)
+            ->whereMonth('encounter_date', now()->month)
+            ->count();
+    }
+    public static function total_hari()
+    {
+        return self::whereDate('encounter_date', now())
+            ->count();
+    }
+
 }
