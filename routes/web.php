@@ -5,18 +5,31 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Profile;
 use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Dashboard;
-use App\Livewire\Penerima\PenerimaCreate;
-use App\Livewire\Penerima\PenerimaEdit;
-use App\Livewire\Penerima\PenerimaIndex;
-use App\Livewire\Rekap\RekapCreate;
-use App\Livewire\Rekap\RekapEdit;
-use App\Livewire\Rekap\RekapIndex;
+use App\Livewire\Encounter\EncounterCreate;
+use App\Livewire\Encounter\EncounterEdit;
+use App\Livewire\Encounter\EncounterIndex;
+use App\Livewire\Patient\PatientCreate;
+use App\Livewire\Patient\PatientEdit;
+use App\Livewire\Patient\PatientIndex;
 use App\Livewire\User\UserIndex;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return to_route('dashboard');
+});
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
+    Route::get('/patient', PatientIndex::class)->name('patient.index');
+    Route::get('/patient/create', PatientCreate::class)->name('patient.create');
+    Route::get('/patient/{id}/edit', PatientEdit::class)->name('patient.edit');
+
+    Route::get('/encounter', EncounterIndex::class)->name('encounter.index');
+    Route::get('/encounter/create', EncounterCreate::class)->name('encounter.create');
+    Route::get('/encounter/{id}/edit', EncounterEdit::class)->name('encounter.edit');
 });
 
 Route::middleware('guest')->group(function () {
@@ -26,19 +39,8 @@ Route::middleware('guest')->group(function () {
     Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
 });
 
-// Route::prefix('rekap-transfer')->group(function () {
 Route::middleware('auth')->group(function () {
-
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-
-    Route::get('/rekap', RekapIndex::class)->name('rekap.index');
-    Route::get('/rekap/create', RekapCreate::class)->name('rekap.create');
-    Route::get('/rekap/{id}/edit', RekapEdit::class)->name('rekap.edit');
-
-    Route::get('/penerima', PenerimaIndex::class)->name('penerima.index');
-    Route::get('/penerima/create', PenerimaCreate::class)->name('penerima.create');
-    Route::get('/penerima/{id}/edit', PenerimaEdit::class)->name('penerima.edit');
-
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/user', UserIndex::class)->name('user');
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>{{ $title ?? 'Rekap Transaksi' }}</title>
+    <title>{{ $title ?? 'RME' }}</title>
 </head>
 
 <body>
@@ -27,11 +27,11 @@
                     <ul class="menu w-full">
                         <li><a wire:navigate class="{{ Str::startsWith(url()->current(), url('dashboard')) ? 'menu-active' : '' }}" href={{ route('dashboard') }}> <i
                                     class="ti ti-home text-lg"></i>Dashboard</a></li>
-                        <h2 class="menu-title mt-2">Rekap</h2>
-                        <li><a wire:navigate class="{{ Str::startsWith(url()->current(), url('rekap')) ? 'menu-active' : '' }}" href={{ route('rekap.index') }}> <i
-                                    class="ti ti-wallet text-lg"></i>Transaksi </a></li>
-                        <li><a wire:navigate class="{{ Str::startsWith(url()->current(), url('penerima')) ? 'menu-active' : '' }}" href={{ route('penerima.index') }}> <i
-                                    class="ti ti-user text-lg"></i>Penerima </a></li>
+                        <h2 class="menu-title mt-2">RME</h2>
+                        <li><a wire:navigate class="{{ Str::startsWith(url()->current(), url('patient')) ? 'menu-active' : '' }}" href={{ route('patient.index') }}> <i
+                                    class="ti ti-users text-lg"></i>Pasien </a></li>
+                        <li><a wire:navigate class="{{ Str::startsWith(url()->current(), url('encounter')) ? 'menu-active' : '' }}" href={{ route('encounter.index') }}> <i
+                                    class="ti ti-stethoscope text-lg"></i>Kunjungan </a></li>
                         {{-- <li>
                             <a><i class="ti ti-user-plus"></i>Parent</a>
                             <ul>
