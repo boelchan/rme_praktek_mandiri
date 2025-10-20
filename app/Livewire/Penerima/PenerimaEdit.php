@@ -13,7 +13,7 @@ class PenerimaEdit extends Component
 
     #[Validate('required')]
     public $nama;
-    
+
     public $nomor_rekening;
 
     #[Validate('required')]

@@ -15,13 +15,10 @@ class UserIndex extends Component
 
     public $search_email;
 
-    public function mount()
-    {
-    }
-
+    public function mount() {}
 
     public function render()
-    {        
+    {
         $data = User::when($this->search_name, fn ($q) => $q->where('name', 'like', '%'.$this->search_name.'%'))
             ->when($this->search_email, fn ($q) => $q->where('email', 'like', '%'.$this->search_email.'%'))
             ->orderBy($this->sortField, $this->sortDirection)
