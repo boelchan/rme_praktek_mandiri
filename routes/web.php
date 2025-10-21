@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/patient', PatientIndex::class)->name('patient.index');
     Route::get('/patient/create', PatientCreate::class)->name('patient.create');
-    Route::get('/patient/{id}/edit', PatientEdit::class)->name('patient.edit');
+    Route::get('/patient/{patient}/edit', PatientEdit::class)->name('patient.edit');
 
     Route::get('/encounter', EncounterIndex::class)->name('encounter.index');
     Route::get('/encounter/create', EncounterCreate::class)->name('encounter.create');

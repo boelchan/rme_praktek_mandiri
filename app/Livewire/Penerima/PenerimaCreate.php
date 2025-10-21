@@ -9,28 +9,40 @@ use Masmerise\Toaster\Toaster;
 
 class PenerimaCreate extends Component
 {
-    #[Validate('required')]
-    public $nama;
+    #[Validate('required|unique:patients,nik')]
+    public $nik;
 
-    #[Validate('required|unique:penerimas,nomor_rekening')]
-    public $nomor_rekening;
+    public $no_rm;
 
     #[Validate('required')]
-    public $alamat;
+    public $full_name;
+
+    #[Validate('required')]
+    public $gender;
+
+    #[Validate('required')]
+    public $address;
+
+    #[Validate('required|date')]
+    public $dob;
+
 
     public function store()
     {
         $this->validate();
 
         Penerima::create([
-            'nama' => $this->nama,
-            'nomor_rekening' => $this->nomor_rekening,
-            'alamat' => $this->alamat,
+            'nik' => $this->nik,
+            'no_rm' => $this->no_rm,
+            'full_name' => $this->full_name,
+            'dob' => $this->dob,
+            'gender' => $this->gender,
+            'address' => $this->address,
         ]);
 
         Toaster::success('Data berhasil disimpan.');
 
-        return to_route('penerima.index');
+        return to_route('patient.index');
     }
 
     public function render()

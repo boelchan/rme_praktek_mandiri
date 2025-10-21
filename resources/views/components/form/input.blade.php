@@ -5,6 +5,7 @@
     'class' => '',
     'floating' => false,
     'live' => false,   // kalau true → wire:model.live.debounce.500ms
+    'required' => false,
 ])
 
 @if($floating)
@@ -19,12 +20,23 @@
             id="{{ $model }}"
             name="{{ $model }}"
             class="input w-full min-w-[0px] {{ $class }}"
+            @if($required) required @endif
         />
-        <span>{{ $label }}</span>
+        <span>
+            {{ $label }}
+            @if($required)
+                <span class="text-red-500">*</span>
+            @endif
+        </span>
     </label>
 @else
     <fieldset class="fieldset">
-        <legend class="fieldset-legend">{{ $label }}</legend>
+        <legend class="fieldset-legend">
+            {{ $label }}
+            @if($required)
+                <span class="text-red-500">*</span>
+            @endif
+        </legend>
 
         <input
             type="{{ $type }}"
@@ -36,6 +48,7 @@
             id="{{ $model }}"
             name="{{ $model }}"
             class="input w-full min-w-[0px] {{ $class }}"
+            @if($required) required @endif
         />
 
         <x-form.error :name="$model" />
