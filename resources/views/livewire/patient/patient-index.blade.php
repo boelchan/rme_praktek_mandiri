@@ -1,4 +1,4 @@
-<x-layouts.content title="User">
+<x-layouts.content title="Pasien">
 
     <div>
         <x-table.filter :open="$open">

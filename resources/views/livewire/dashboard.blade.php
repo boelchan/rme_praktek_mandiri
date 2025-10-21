@@ -4,7 +4,7 @@
         <div class="card border border-neutral-300 hover:shadow-md transition p-4">
             <div class="flex items-start justify-between">
                 <div>
-                    <h2 class="card-title text-sm text-gray-500">Jumlah Kunjungan Hari ini</h2>
+                    <h2 class="card-title text-sm text-gray-500">Kunjungan Hari ini</h2>
                     <div class="mt-2 flex items-baseline">
                         <span class="text-2xl font-semibold text-gray-900">{{ number_format($total_hari, 0, ',', '.') }}</span>
                     </div>
@@ -22,7 +22,7 @@
         <div class="card border border-neutral-300 hover:shadow-md transition p-4">
             <div class="flex items-start justify-between">
                 <div>
-                    <h2 class="card-title text-sm text-gray-500">Jumlah Kunjungan Bulan ini</h2>
+                    <h2 class="card-title text-sm text-gray-500">Kunjungan Bulan ini</h2>
                     <div class="mt-2 flex items-baseline">
                         <span class="text-2xl font-semibold text-gray-900">{{ number_format($total_bulan, 0, ',', '.') }}</span>
                     </div>

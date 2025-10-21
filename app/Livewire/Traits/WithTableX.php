@@ -43,4 +43,12 @@ trait WithTableX
             }
         }
     }
+
+    public function applyTable($query)
+    {
+        return $query
+            ->orderBy($this->sortField, $this->sortDirection)
+            ->paginate($this->perPage)
+            ->onEachSide(1);
+    }
 }

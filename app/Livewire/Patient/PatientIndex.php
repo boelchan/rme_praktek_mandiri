@@ -2,12 +2,12 @@
 
 namespace App\Livewire\Patient;
 
-use App\Http\Livewire\BaseTable;
 use App\Livewire\Traits\WithTableX;
 use App\Models\Patient;
+use Livewire\Component;
 use Masmerise\Toaster\Toaster;
 
-class PatientIndex extends BaseTable
+class PatientIndex extends Component
 {
     use WithTableX;
 
