@@ -13,7 +13,7 @@ use Masmerise\Toaster\Toaster;
 
 class EncounterCreate extends Component
 {
-    public $patient_id;
+    public $patientId;
 
     public $encounter_date;
 
@@ -31,21 +31,29 @@ class EncounterCreate extends Component
 
     public $route_redirect;
 
+    public $riwayat = [];
+
     public function mount()
     {
         $this->encounter_date = date('Y-m-d');
-        $this->patient_id = request()->patient_id;
+        $this->patientId = request()->patient_id;
 
         $this->route_redirect = route('encounter.index');
         if (request()->patient_id) {
-            $this->route_redirect = route('patient.show', $this->patient_id);
+            $this->route_redirect = route('patient.show', $this->patientId);
+            $this->riwayat = Encounter::with(['condition', 'medication', 'observation', 'specimen'])->where('patient_id', $this->patientId)->limit(5)->orderBy('encounter_date', 'desc')->orderBy('created_at', 'desc')->get();
         }
+    }
+
+    public function updatingPatientId($value)
+    {
+        $this->riwayat = Encounter::with(['condition', 'medication', 'observation', 'specimen'])->where('patient_id', $value)->limit(5)->orderBy('encounter_date', 'desc')->orderBy('created_at', 'desc')->get();
     }
 
     public function store()
     {
         $encounter = Encounter::create([
-            'patient_id' => $this->patient_id,
+            'patient_id' => $this->patientId,
             'encounter_date' => $this->encounter_date,
             'keterangan' => $this->encounter_keterangan,
         ]);
