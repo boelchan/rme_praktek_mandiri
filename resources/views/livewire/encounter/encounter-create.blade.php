@@ -1,25 +1,31 @@
 <x-layouts.content title="Kunjungan">
-    <div class="card w-84 border border-neutral-300">
+    <div class="card w-84 lg:w-[80%] min-w-84 border border-neutral-300">
         <div class="card-body">
             <h2 class="card-title">Tambah Data</h2>
-            <form wire:submit="store">
-                <x-form.input label="Tanggal" model="encounter_date" type="date" required />
-                <x-form.input label="Keluhan" model="condition_keluhan" />
-                <fieldset class="fieldset">
-                    <legend class="fieldset-legend">Tekanan Darah </legend>
-                    <label class="input">
-                        <input type="text" wire:model="observation_sistolik" placeholder="sistolik" />
-                        <span class="label">/</span>
-                        <input type="text" wire:model="observation_diastolik" placeholder="diastolik" />
-                    </label>
-                </fieldset>
-                <x-form.textarea label="Lab" model="specimen" />
-                <x-form.textarea label="Obat" model="medication" />
-                <x-form.textarea label="Keterangan" model="encounter_keterangan" />
+            <form wire:submit="store" class="lg:grid grid-cols-2 gap-10 gap-y-0">
+                <div>
+                    <x-form.input label="Tanggal" model="encounter_date" type="date" required />
+                    <x-form.select label="Pasien" model="patient_id" :options="$patients" required />
+                    <x-form.input label="Keluhan" model="condition_keluhan" />
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Tekanan Darah </legend>
+                        <label class="input">
+                            <input type="text" wire:model="observation_sistolic" placeholder="sistolic" />
+                            <span class="label">/</span>
+                            <input type="text" wire:model="observation_diastolic" placeholder="diastolic" />
+                        </label>
+                    </fieldset>
+                </div>
+                <div>
+                    <x-form.textarea label="Lab" model="specimen" rows="5" />
+                    <x-form.textarea label="Obat" model="medication" rows="5" />
+                </div>
+                <div class="col-span-2">
+                    <x-form.textarea label="Keterangan" model="encounter_keterangan" rows="5" />
+                    <button class="btn btn-primary btn-soft mt-4 w-full">Simpan</button>
+                </div>
 
-                <button class="btn btn-primary btn-soft mt-4">Simpan</button>
             </form>
-
         </div>
     </div>
 </x-layouts.content>

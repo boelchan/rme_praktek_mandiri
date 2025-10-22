@@ -39,7 +39,7 @@ class PatientCreate extends Component
             'dob' => $this->dob,
             'gender' => $this->gender,
             'address' => $this->address,
-            'status' => 1,
+            'status' => 'active',
         ]);
 
         Toaster::success('Data berhasil disimpan.');

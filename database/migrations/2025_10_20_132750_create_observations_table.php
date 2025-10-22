@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('ihs_number')->nullable();
             $table->foreignId('encounter_id')->constrained('encounters');
             $table->string('category');
-            $table->integer('value');
+            $table->integer('value')->default(0);
             $table->timestamps();
         });
     }

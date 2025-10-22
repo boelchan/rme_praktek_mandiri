@@ -11,6 +11,7 @@ use App\Livewire\Encounter\EncounterIndex;
 use App\Livewire\Patient\PatientCreate;
 use App\Livewire\Patient\PatientEdit;
 use App\Livewire\Patient\PatientIndex;
+use App\Livewire\Patient\PatientShow;
 use App\Livewire\User\UserIndex;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/patient', PatientIndex::class)->name('patient.index');
     Route::get('/patient/create', PatientCreate::class)->name('patient.create');
     Route::get('/patient/{patient}/edit', PatientEdit::class)->name('patient.edit');
+    Route::get('/patient/{patient}', PatientShow::class)->name('patient.show');
 
     Route::get('/encounter', EncounterIndex::class)->name('encounter.index');
     Route::get('/encounter/create', EncounterCreate::class)->name('encounter.create');
-    Route::get('/encounter/{id}/edit', EncounterEdit::class)->name('encounter.edit');
+    Route::get('/encounter/{encounter}/edit', EncounterEdit::class)->name('encounter.edit');
 });
 
 Route::middleware('guest')->group(function () {

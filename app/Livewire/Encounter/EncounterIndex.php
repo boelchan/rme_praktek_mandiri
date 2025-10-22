@@ -21,7 +21,7 @@ class EncounterIndex extends Component
 
     public function render()
     {
-        $data = Encounter::with('patient')->when($this->search_encounter_date, fn ($q) => $q->whereDate('encounter_date', $this->search_encounter_date));
+        $data = Encounter::with(['patient', 'condition'])->when($this->search_encounter_date, fn ($q) => $q->whereDate('encounter_date', $this->search_encounter_date));
 
         return view('livewire.encounter.encounter-index', ['data' => $this->applyTable($data)]);
     }
