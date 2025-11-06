@@ -26,7 +26,7 @@
                 <fieldset class="fieldset">
                     <div class="flex-2 flex justify-between">
                         <legend class="fieldset-legend">Password</legend>
-                        <a href="{{ route('password.request') }}" class="btn btn-link p-0 btn-sm">Lupa password ?</a>
+                        {{-- <a href="{{ route('password.request') }}" class="btn btn-link p-0 btn-sm">Lupa password ?</a> --}}
                     </div>
 
                     <input type="password" placeholder="Password" class="input input-primary w-full" wire:model="password">
