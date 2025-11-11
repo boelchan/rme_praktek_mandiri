@@ -94,7 +94,7 @@ class EncounterEdit extends Component
 
         Toaster::success('Berhasil');
 
-        // return redirect($this->route_redirect);
+        return to_route('encounter.index');
     }
 
     public function render()

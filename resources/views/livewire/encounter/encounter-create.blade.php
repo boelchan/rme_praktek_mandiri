@@ -12,9 +12,9 @@
                         <fieldset class="fieldset">
                             <legend class="fieldset-legend">Tekanan Darah </legend>
                             <label class="input">
-                                <input type="text" wire:model="observation_sistolic" placeholder="sistolic" />
+                                <input type="number" wire:model="observation_sistolic" placeholder="sistolic" />
                                 <span class="label">/</span>
-                                <input type="text" wire:model="observation_diastolic" placeholder="diastolic" />
+                                <input type="number" wire:model="observation_diastolic" placeholder="diastolic" />
                             </label>
                         </fieldset>
                     </div>

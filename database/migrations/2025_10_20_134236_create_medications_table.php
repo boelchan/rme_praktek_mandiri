@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('medications', function (Blueprint $table) {
             $table->id();
             $table->string('ihs_number')->nullable();
-            $table->foreignId('encounter_id')->constrained('encounters');
+            $table->foreignId('encounter_id')->constrained('encounters')->onDelete('cascade');
             $table->text('value');
             $table->timestamps();
         });
