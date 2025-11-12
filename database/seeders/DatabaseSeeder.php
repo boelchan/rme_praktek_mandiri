@@ -26,14 +26,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'operator@gmail.com',
             'password' => bcrypt('123'),
         ]);
-        Patient::create([
-            'uuid'=> 'uuid',
-            'nik' => '1111111111111111',
-            'no_rm' => '12345',
-            'full_name' => 'bulyan',
-            'gender' => 'L',
-            'dob'=> '2000-01-01',
-            'address' => 'sumenep'
-        ]);
+        
     }
 }
