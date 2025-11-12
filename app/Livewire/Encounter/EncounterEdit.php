@@ -63,19 +63,15 @@ class EncounterEdit extends Component
             'keterangan' => $this->encounter_keterangan,
         ]);
 
-        if ($this->observation_sistolic) {
-            Observation::updateorCreate(
-                ['encounter_id' => $this->encounter_id, 'category' => 'sistolic'],
-                ['value' => $this->observation_sistolic]
-            );
-        }
+        Observation::updateorCreate(
+            ['encounter_id' => $this->encounter_id, 'category' => 'sistolic'],
+            ['value' => $this->observation_sistolic || 0]
+        );
 
-        if ($this->observation_diastolic) {
-            Observation::updateorCreate(
-                ['encounter_id' => $this->encounter_id, 'category' => 'diastolic'],
-                ['value' => $this->observation_diastolic]
-            );
-        }
+        Observation::updateorCreate(
+            ['encounter_id' => $this->encounter_id, 'category' => 'diastolic'],
+            ['value' => $this->observation_diastolic || 0]
+        );
 
         Condition::updateorCreate(
             ['encounter_id' => $this->encounter_id],

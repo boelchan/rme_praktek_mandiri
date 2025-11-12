@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('ihs_number')->nullable();
             $table->foreignId('encounter_id')->constrained('encounters')->onDelete('cascade');
             $table->string('category');
-            $table->integer('value')->default(0);
+            $table->integer('value')->default(0)->nullable();
             $table->timestamps();
         });
     }
